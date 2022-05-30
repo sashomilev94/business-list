@@ -21,3 +21,19 @@
 	flex: 1;
 	margin-left: 20px;
 }
+
+@media(max-width: 768px) {
+	.NearbyPlace {
+		display: block;
+	}
+
+	.NearbyPlace p:first-child {
+		width: 100%;
+		font-weight: bold;
+	}
+
+	.NearbyPlace p:last-child {
+		margin-left: 0;
+		margin-top: 5px;
+	}
+}

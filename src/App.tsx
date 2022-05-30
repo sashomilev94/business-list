@@ -5,17 +5,18 @@ import Header from './Header';
 import Table from './Table';
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import DetailPage from './DetailPage';
+import { BusinessData } from './sharedInterface';
 
 
 function App() {
-	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [errorResponse, setErrorResponse] = useState('');
+	const [data, setData] = useState<BusinessData[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
+	const [errorResponse, setErrorResponse] = useState<string>('');
+	const dataURL = `https://feinterviewtask.azurewebsites.net/b/6231abada703bb67492d2b8f`;
 
-	useEffect(() => {
-		const dataURL = `https://feinterviewtask.azurewebsites.net/b/6231abada703bb67492d2b8f`;
-		axios.get(dataURL)
-			.then(res => {
+	const getData = async () => {
+		await axios.get(dataURL)
+			.then((res: { data: BusinessData[] }) => {
 				const info = res.data;
 				setData(info);
 			}).catch(error => {
@@ -23,8 +24,12 @@ function App() {
 			}).finally(() => {
 				setLoading(false);
 			})
+	}
+
+	useEffect(() => {
+		getData();
 	}, [])
-	console.log(errorResponse)
+
 
 	const renderData = () => {
 		if (errorResponse !== '') {

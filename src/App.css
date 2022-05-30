@@ -1,0 +1,19 @@
+.App {
+	min-height: 100vh;
+  	background-color: #f9f9f9;
+	overflow: hidden;
+}
+
+.Loader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 95px);
+}
+
+.ErrorData {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 95px);
+}

@@ -1,0 +1,23 @@
+.NearbyPlace {
+	display: flex;
+	padding: 20px 10px;
+	margin-top: 20px;
+	background-color: #f9f9f9;
+}
+
+.NearbyPlace + .NearbyPlace {
+	margin-top: 5px;
+}
+
+.NearbyPlace p {
+	margin: 0;
+}
+
+.NearbyPlace p:first-child {
+	width: 25%;
+}
+
+.NearbyPlace p:last-child {
+	flex: 1;
+	margin-left: 20px;
+}
